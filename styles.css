@@ -19,7 +19,7 @@ Need to adjust based on the squares given
 */
 
 .grid > div{
-    background-color: red;
+    
     height: var(--gridSize);
     width: var(--gridSize);
 }

@@ -7,10 +7,14 @@ const grid = document.querySelector(".grid");
 var gridSizeVar = document.querySelector(':root');
 
 function createGrid(gridSize){
+
+    /* Sets the boxes in css to fit the grid.  */
+
     const totalGridSize = 409600
     const numOfCells = gridSize * gridSize
     const sizeOfCells = Math.sqrt(totalGridSize/numOfCells)
     
+    /* Sets the CSS Variable to size of each cell */
     gridSizeVar.style.setProperty("--gridSize", `${sizeOfCells}px`);
 
     /* Removes the previous grid by removing grid's child */
@@ -22,9 +26,13 @@ function createGrid(gridSize){
     for(let i = 0; i<gridSize * gridSize; i++){
         const gridBox = document.createElement("div");
         gridBox.textContent = i 
+        gridBox.classList.add("Class" + i); 
         grid.appendChild(gridBox)
     }
 }
+
+/* Default 16 X 16 Grid */
+createGrid(16)
 
 button.addEventListener('click', function() {
 
@@ -37,3 +45,11 @@ button.addEventListener('click', function() {
     
 });
 
+/* Mouse Hover Function*/
+/* MouseOver Div, grab Div Class and update its background color */
+document.addEventListener('mouseover', function(event) {
+    randomNumRed = Math.floor(Math.random(0, 256) * 100)
+    randomNumGreen = Math.floor(Math.random(0, 256) * 100)
+    randomNumBlue = Math.floor(Math.random(0, 256) * 100)
+    event.target.style.backgroundColor = `rgb(${randomNumRed}, ${randomNumGreen}, ${randomNumBlue})`;
+});
