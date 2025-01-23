@@ -11,15 +11,7 @@
     border: 1px solid black;
 }
 
-/* 
-In order to make the squares fit inside the grid, the width and height will need to be adjusted
-40 * 40 = 1600 * 256 = 409600
-640 * 640 = 409,600
-Need to adjust based on the squares given
-*/
-
 .grid > div{
-    
     height: var(--gridSize);
     width: var(--gridSize);
 }

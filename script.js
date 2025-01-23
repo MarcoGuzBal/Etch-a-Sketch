@@ -10,7 +10,7 @@ function createGrid(gridSize){
 
     /* Sets the boxes in css to fit the grid.  */
 
-    const totalGridSize = 409600
+    const totalGridSize = 409660
     const numOfCells = gridSize * gridSize
     const sizeOfCells = Math.sqrt(totalGridSize/numOfCells)
     
@@ -25,7 +25,7 @@ function createGrid(gridSize){
     /* Adds a div to the grid container based on the input value given */
     for(let i = 0; i<gridSize * gridSize; i++){
         const gridBox = document.createElement("div");
-        gridBox.textContent = i 
+        // gridBox.textContent = i 
         gridBox.classList.add("Class" + i); 
         grid.appendChild(gridBox)
     }
@@ -45,11 +45,17 @@ button.addEventListener('click', function() {
     
 });
 
+
+
 /* Mouse Hover Function*/
 /* MouseOver Div, grab Div Class and update its background color */
 document.addEventListener('mouseover', function(event) {
-    randomNumRed = Math.floor(Math.random(0, 256) * 100)
-    randomNumGreen = Math.floor(Math.random(0, 256) * 100)
-    randomNumBlue = Math.floor(Math.random(0, 256) * 100)
-    event.target.style.backgroundColor = `rgb(${randomNumRed}, ${randomNumGreen}, ${randomNumBlue})`;
+
+    // Makes sure its the grid class, and that the children are picked (Not Parent)
+    if (grid && event.target.parentElement === grid){
+        randomNumRed = Math.floor(Math.random(0, 256) * 100)
+        randomNumGreen = Math.floor(Math.random(0, 256) * 100)
+        randomNumBlue = Math.floor(Math.random(0, 256) * 100)
+        event.target.style.backgroundColor = `rgb(${randomNumRed}, ${randomNumGreen}, ${randomNumBlue})`;
+    }
 });
