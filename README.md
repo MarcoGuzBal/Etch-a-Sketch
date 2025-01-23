@@ -1,2 +1,2 @@
 # Etch-a-Sketch
-Creating Etch-a-Sketch 
+Created Etch-a-Sketch 
